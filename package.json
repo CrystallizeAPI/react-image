@@ -1,0 +1,26 @@
+{
+  "name": "@crystallize/react-image",
+  "description":
+    "A React package to output an img tag with different source variations from Crystallize",
+  "version": "1.0.0",
+  "devDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "webpack"
+  },
+  "main": "build/index.js",
+  "babel": {
+    "presets": ["env"],
+    "plugins": ["transform-object-rest-spread", "transform-react-jsx"]
+  }
+}
