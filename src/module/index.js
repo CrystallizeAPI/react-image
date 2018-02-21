@@ -41,13 +41,7 @@ class CrystallizeImage extends React.Component {
 }
 
 CrystallizeImage.propTypes = {
-  src: (props, propName, componentName) => {
-    if (!props.src && !props.srcVariations) {
-      return new Error(
-        `One of props 'src' or 'srcVariations' was not specified in '${componentName}'.`
-      );
-    }
-  },
+  src: PropTypes.string,
   srcVariations: PropTypes.arrayOf(PropTypes.string),
   alt: PropTypes.string.isRequired
 };
