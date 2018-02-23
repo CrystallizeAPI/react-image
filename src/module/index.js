@@ -32,9 +32,16 @@ class CrystallizeImage extends React.Component {
   }
 
   render() {
-    const { alt, src, srcVariations, ...rest } = this.props;
-    const srcSet = this.createSrcSet(srcVariations);
-    const srcToUse = src || this.getDefaultSrc(srcVariations);
+    const { alt, media, src, srcVariations, ...rest } = this.props;
+
+    let srcToUse = media && media.url ? media.url : src;
+    let srcVariationsToUse =
+      media && media.product_image_variations
+        ? media.product_image_variations
+        : srcVariations;
+
+    const srcSet = this.createSrcSet(srcVariationsToUse);
+    srcToUse = srcToUse || this.getDefaultSrc(srcVariationsToUse);
 
     return <img src={srcToUse} srcSet={srcSet} alt={alt} {...rest} />;
   }
@@ -43,6 +50,10 @@ class CrystallizeImage extends React.Component {
 CrystallizeImage.propTypes = {
   src: PropTypes.string,
   srcVariations: PropTypes.arrayOf(PropTypes.string),
+  media: PropTypes.shape({
+    url: PropTypes.string,
+    product_image_variations: PropTypes.arrayOf(PropTypes.string)
+  }),
   alt: PropTypes.string.isRequired
 };
 

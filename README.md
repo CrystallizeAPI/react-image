@@ -10,13 +10,14 @@ import CrystallizeImage from '@crystallize/image';
 
 ```
 <CrystallizeImage
-    src={image.url}
-    srcVariations={image.product_image_variations}
+    media={image}
     alt={image.alt}
 />
 ```
 
 ## Options
+
+### media[mediaObject]: required\*
 
 ### src[string]: required\*
 
@@ -24,4 +25,15 @@ import CrystallizeImage from '@crystallize/image';
 
 ### alt: required
 
-\* Either src or srcVariations must be provided
+\* Either media, src, srcVariations must be provided
+
+## mediaObject
+
+Example:
+
+```
+{
+    url: '/myimage.jpg',
+    product_image_variations: ['/myimage_300.jpg', '/myimage_1024.jpg']
+}
+```
