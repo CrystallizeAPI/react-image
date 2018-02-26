@@ -5,7 +5,7 @@ A React package to output an img tag with different source variations from Cryst
 ## How to use
 
 ```
-import CrystallizeImage from '@crystallize/image';
+import CrystallizeImage from '@crystallize/react-image';
 ```
 
 ```
