@@ -10,7 +10,7 @@ class CrystallizeImage extends React.Component {
     let maxWidth = parseInt(this.props.width || -1, 10);
     const sets = [];
     srcVariations.forEach(variation => {
-      const widthMatch = variation.match(/_(\d+)\.(jpg|jpeg|gif|png|webp)$/);
+      const widthMatch = variation.match(/_(\d+)\.(jpg|jpeg|png|webp)$/);
       if (widthMatch) {
         const width = widthMatch[1];
         if (maxWidth === -1 || width <= maxWidth) {
@@ -32,9 +32,14 @@ class CrystallizeImage extends React.Component {
   }
 
   render() {
-    const { alt, media, src, srcVariations, ...rest } = this.props;
-
+    const { media, src, srcVariations, ...rest } = this.props;
     let srcToUse = media && media.url ? media.url : src;
+
+    // Gifs are not supported atm.
+    if (srcToUse.includes(".gif")) {
+      return <img src={srcToUse} {...rest} />;
+    }
+
     let srcVariationsToUse =
       media && media.product_image_variations
         ? media.product_image_variations
@@ -43,7 +48,7 @@ class CrystallizeImage extends React.Component {
     const srcSet = this.createSrcSet(srcVariationsToUse);
     srcToUse = srcToUse || this.getDefaultSrc(srcVariationsToUse);
 
-    return <img src={srcToUse} srcSet={srcSet} alt={alt} {...rest} />;
+    return <img src={srcToUse} srcSet={srcSet} {...rest} />;
   }
 }
 
