@@ -3,15 +3,17 @@
   "description": "A React package to output an img tag with different source variations from Crystallize",
   "version": "1.2.1",
   "devDependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.5.1"
+    "babel-preset-env": "^1.5.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.12"
   },
   "scripts": {
     "dev": "react-scripts start",
