@@ -1,8 +1,7 @@
 {
   "name": "@crystallize/react-image",
-  "description":
-    "A React package to output an img tag with different source variations from Crystallize",
-  "version": "1.2.0",
+  "description": "A React package to output an img tag with different source variations from Crystallize",
+  "version": "1.2.1",
   "devDependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -21,7 +20,12 @@
   },
   "main": "build/index.js",
   "babel": {
-    "presets": ["env"],
-    "plugins": ["transform-object-rest-spread", "transform-react-jsx"]
+    "presets": [
+      "env"
+    ],
+    "plugins": [
+      "transform-object-rest-spread",
+      "transform-react-jsx"
+    ]
   }
 }
