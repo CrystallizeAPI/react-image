@@ -32,8 +32,14 @@ class CrystallizeImage extends React.Component {
   }
 
   render() {
-    const { media, src, srcVariations, ...rest } = this.props;
-    let srcToUse = media && media.url ? media.url : src;
+    const { media, src, srcVariations, product_image, ...rest } = this.props;
+    let srcToUse = src;
+
+    if (media && media.url) {
+      srcToUse = media.url;
+    } else if (product_image) {
+      srcToUse = product_image;
+    }
 
     // Gifs are not supported atm.
     if (srcToUse.includes(".gif")) {
@@ -46,8 +52,12 @@ class CrystallizeImage extends React.Component {
         : srcVariations;
 
     const srcSet = this.createSrcSet(srcVariationsToUse);
-    srcToUse = srcToUse || this.getDefaultSrc(srcVariationsToUse);
 
+    if (!srcSet) {
+      return <img src={srcToUse} {...rest} />;
+    }
+
+    srcToUse = srcToUse || this.getDefaultSrc(srcVariationsToUse);
     return <img src={srcToUse} srcSet={srcSet} {...rest} />;
   }
 }

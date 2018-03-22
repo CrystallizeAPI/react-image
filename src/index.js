@@ -6,20 +6,20 @@ import Module from "./module";
 
 const media = {
   url:
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv.jpg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair.jpeg",
   product_image_variations: [
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_300.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_320.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_414.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_768.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_828.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_1280.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_1366.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_1440.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_1536.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_1920.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_2560.jpg",
-    "https://accelerated.atoms.crystallize.digital/gullpila/images/133_odd-jerv/_resized_3200.jpg"
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_300.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_320.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_414.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_768.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_828.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1280.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1366.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1440.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1536.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1920.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_2560.jpeg",
+    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_3200.jpeg"
   ]
 };
 
