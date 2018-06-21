@@ -1,54 +1,101 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
+import PropTypes from "prop-types";
 
-import Module from "./module";
-
-const media = {
-  url:
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair.jpeg",
-  product_image_variations: [
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_300.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_320.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_414.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_768.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_828.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1280.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1366.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1440.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1536.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1920.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_2560.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_3200.jpeg"
-  ]
-};
-
-const mediaGif = {
-  url:
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1.gif",
-  product_image_variations: [
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_300.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_320.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_414.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_768.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_828.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_1280.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_1366.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_1440.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_1536.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_1920.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_2560.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_3200.jpg"
-  ]
-};
-
-ReactDOM.render(
-  <div>
-    <Module
-      media={media}
-      alt="Alt text"
-      sizes="(min-width: 900px) 800px, 80vw"
-    />
-  </div>,
-  document.getElementById("root")
+// The default image variations created by Crystallize
+const imageVariations = "300 320 414 768 828 1280 1366 1440 1536 1920 2560 3200".split(
+  " "
 );
+
+export function generateImageVariationsFromSrc(src) {
+  if (typeof src !== "string") {
+    throw new Error("@crystallize/react-image: src is not a string");
+  }
+
+  const [, name, extension] = src.match(/(.+)\.(jpg|jpeg|png|webp)$/);
+  if (!name || !extension) {
+    return [];
+  }
+
+  return imageVariations.map(i => `${name}/_resized_${i}.${extension}`);
+}
+
+class CrystallizeImage extends React.Component {
+  createSrcSet(srcVariations) {
+    if (!srcVariations || !srcVariations.length) {
+      return;
+    }
+
+    let maxWidth = parseInt(this.props.width || -1, 10);
+    const sets = [];
+    srcVariations.forEach(variation => {
+      const widthMatch = variation.match(/_(\d+)\.(jpg|jpeg|png|webp)$/);
+      if (widthMatch) {
+        const width = widthMatch[1];
+        if (maxWidth === -1 || width <= maxWidth) {
+          sets.push(`${variation} ${width}w`);
+        }
+      }
+    });
+
+    if (sets.length) {
+      return sets.join(", ");
+    }
+  }
+
+  getDefaultSrc(srcVariations) {
+    if (!srcVariations || !srcVariations.length) {
+      return;
+    }
+    return srcVariations[0];
+  }
+
+  render() {
+    const { media, src, srcVariations, product_image, ...rest } = this.props;
+    let srcToUse = src;
+
+    if (media && media.url) {
+      srcToUse = media.url;
+    } else if (product_image) {
+      srcToUse = product_image;
+    }
+
+    // Gifs are not supported atm.
+    if (srcToUse.includes(".gif")) {
+      return <img src={srcToUse} {...rest} />;
+    }
+
+    let srcVariationsToUse =
+      media && media.product_image_variations
+        ? media.product_image_variations
+        : srcVariations;
+
+    if (
+      !srcVariationsToUse &&
+      srcToUse &&
+      srcToUse.startsWith("https://accelerated.atoms.crystallize.digital")
+    ) {
+      srcVariationsToUse = generateImageVariationsFromSrc(srcToUse);
+    }
+
+    const srcSet = this.createSrcSet(srcVariationsToUse);
+
+    if (!srcSet) {
+      return <img src={srcToUse} {...rest} />;
+    }
+
+    srcToUse = srcToUse || this.getDefaultSrc(srcVariationsToUse);
+    return <img src={srcToUse} srcSet={srcSet} {...rest} />;
+  }
+}
+
+CrystallizeImage.propTypes = {
+  src: PropTypes.string,
+  srcVariations: PropTypes.arrayOf(PropTypes.string),
+  media: PropTypes.shape({
+    url: PropTypes.string,
+    product_image_variations: PropTypes.arrayOf(PropTypes.string)
+  }),
+  alt: PropTypes.string.isRequired
+};
+
+export default CrystallizeImage;
