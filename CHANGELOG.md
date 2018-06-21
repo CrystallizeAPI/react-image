@@ -1,3 +1,13 @@
+<a name="1.4.0"></a>
+## 1.4.0 (2018-06-21)
+
+* Added changelog ([404aeb8](https://github.com/snowballdigital/react-image/commit/404aeb8))
+* Auto generate the srcset ([35f260a](https://github.com/snowballdigital/react-image/commit/35f260a))
+* MIT license ([11f65d9](https://github.com/snowballdigital/react-image/commit/11f65d9))
+* Updated react-scripts ([7df0001](https://github.com/snowballdigital/react-image/commit/7df0001))
+
+
+
 <a name="1.3.0"></a>
 ## 1.3.0 (2018-03-22)
 
