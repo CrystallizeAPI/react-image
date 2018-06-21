@@ -1,3 +1,10 @@
+<a name="1.4.1"></a>
+## <small>1.4.1 (2018-06-21)</small>
+
+* Fixed build output ([9426809](https://github.com/snowballdigital/react-image/commit/9426809))
+
+
+
 <a name="1.4.0"></a>
 ## 1.4.0 (2018-06-21)
 
