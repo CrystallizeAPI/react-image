@@ -11,11 +11,12 @@ export function generateImageVariationsFromSrc(src) {
     throw new Error("@crystallize/react-image: src is not a string");
   }
 
-  const [, name, extension] = src.match(/(.+)\.(jpg|jpeg|png|webp)$/);
-  if (!name || !extension) {
+  const match = src.match(/(.+)\.(jpg|jpeg|png|webp)$/);
+  if (!match) {
     return [];
   }
 
+  const [, name, extension] = match;
   return imageVariations.map(i => `${name}/_resized_${i}.${extension}`);
 }
 
