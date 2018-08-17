@@ -1,7 +1,7 @@
 {
   "name": "@crystallize/react-image",
   "description": "A React package to output an img tag with different source variations from Crystallize",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "license": "MIT",
   "repository": {
     "type": "git",
