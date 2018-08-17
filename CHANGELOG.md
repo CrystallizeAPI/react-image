@@ -1,3 +1,9 @@
+## <small>1.4.2 (2018-06-25)</small>
+
+* Fixed bug where the src was kinda bogus ([9a2a028](https://github.com/snowballdigital/react-image/commit/9a2a028))
+
+
+
 <a name="1.4.1"></a>
 ## <small>1.4.1 (2018-06-21)</small>
 
