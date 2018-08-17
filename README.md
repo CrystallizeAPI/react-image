@@ -5,35 +5,18 @@ A React package to output an img tag with different source variations from Cryst
 ## How to use
 
 ```
-import CrystallizeImage from '@crystallize/react-image';
+import Image from '@crystallize/react-image';
 ```
 
 ```
-<CrystallizeImage
-    media={image}
+<Image
+    src={src}
     alt={image.alt}
 />
 ```
 
 ## Options
 
-### media[mediaObject]: required\*
-
-### src[string]: required\*
-
-### srcVariations[array[string]]: required\*
+### src[string]: required
 
 ### alt: required
-
-\* Either media, src, srcVariations must be provided
-
-## mediaObject
-
-Example:
-
-```
-{
-    url: '/myimage.jpg',
-    product_image_variations: ['/myimage_300.jpg', '/myimage_1024.jpg']
-}
-```
