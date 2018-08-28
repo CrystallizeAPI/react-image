@@ -61,7 +61,7 @@ class CrystallizeImage extends React.Component {
     }
 
     // Gifs are not supported atm.
-    if (srcToUse.includes(".gif")) {
+    if (srcToUse && srcToUse.includes(".gif")) {
       return <img src={srcToUse} {...rest} />;
     }
 
