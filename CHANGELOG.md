@@ -1,3 +1,9 @@
+## <small>1.4.4 (2018-08-28)</small>
+
+* Fixed bug when src was not set ([3e0e93c](https://github.com/snowballdigital/react-image/commit/3e0e93c))
+
+
+
 ## <small>1.4.3 (2018-08-17)</small>
 
 * Updated doc ([1c4e8c7](https://github.com/snowballdigital/react-image/commit/1c4e8c7))
