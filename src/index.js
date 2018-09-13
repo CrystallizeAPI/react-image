@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // The default image variations created by Crystallize
-const imageVariations = "300 320 414 768 828 1280 1366 1440 1536 1920 2560 3200".split(
-  " "
-);
+const imageVariations = "320 414 768 1280 1536 1920 2560 3200".split(" ");
 
 export function generateImageVariationsFromSrc(src) {
   if (typeof src !== "string") {
