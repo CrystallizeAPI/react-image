@@ -1,3 +1,9 @@
+## 2.1.0 (2018-09-28)
+
+* Added logo ([4a2d769](https://github.com/snowballdigital/react-image/commit/4a2d769))
+
+
+
 ## 2.0.0 (2018-09-13)
 
 * Reduced the number of default variations ([8bb55e7](https://github.com/snowballdigital/react-image/commit/8bb55e7))
