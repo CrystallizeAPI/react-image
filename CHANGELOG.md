@@ -1,3 +1,9 @@
+## 2.2.0 (2018-11-01)
+
+* New git url ([bf1be2b](https://github.com/CrystallizeAPI/react-image/commit/bf1be2b))
+
+
+
 ## 2.1.0 (2018-09-28)
 
 * Added logo ([4a2d769](https://github.com/snowballdigital/react-image/commit/4a2d769))
