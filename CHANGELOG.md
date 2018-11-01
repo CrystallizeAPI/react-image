@@ -1,3 +1,9 @@
+## 2.3.0 (2018-11-01)
+
+* Rollup ([eb8509d](https://github.com/CrystallizeAPI/react-image/commit/eb8509d))
+
+
+
 ## 2.2.0 (2018-11-01)
 
 * New git url ([bf1be2b](https://github.com/CrystallizeAPI/react-image/commit/bf1be2b))
