@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:snowballdigital/react-image.git"
+    "url": "git@github.com:CrystallizeAPI/react-image.git"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
