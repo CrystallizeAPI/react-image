@@ -1,3 +1,11 @@
+## 2.4.0 (2018-12-05)
+
+* Install instructions in readme ([7af152e](https://github.com/CrystallizeAPI/react-image/commit/7af152e))
+* Update README.md ([3faea2a](https://github.com/CrystallizeAPI/react-image/commit/3faea2a))
+* Update README.md ([095b9df](https://github.com/CrystallizeAPI/react-image/commit/095b9df))
+
+
+
 ## 2.3.0 (2018-11-01)
 
 * Rollup ([eb8509d](https://github.com/CrystallizeAPI/react-image/commit/eb8509d))
