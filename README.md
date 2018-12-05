@@ -1,8 +1,8 @@
 ![alt text](https://raw.githubusercontent.com/snowballdigital/react-image/HEAD/media/logo.png "An illustration of an atom")
 
-# Crystallize image
+# React Srcset Images for Crystallize
 
-A React package to output an img tag with different source variations from Crystallize
+A React package to output an img tag with different source variations from Crystallize using srcset. Use this to easily build responsive images powered by the [Crystallize headless commerce service](https://crystallize.com/).
 
 ## How to use
 
