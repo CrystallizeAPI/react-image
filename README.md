@@ -9,6 +9,12 @@ A React package to output an img tag with different source variations from Cryst
 ## How to use
 
 ```
+yarn add @crystallize/react-image
+```
+
+## How to use
+
+```
 import Image from '@crystallize/react-image';
 ```
 
