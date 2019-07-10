@@ -25,6 +25,16 @@ import Image from '@crystallize/react-image';
 />
 ```
 
+## Support for PIM Image objects (v2.5.0+)
+
+```
+<Image
+    crystallizeImgObj={i}
+    withZoom // Optional: Click image to zoom in
+    sizes="" // Optional: Replace default media queries for srcset
+/>
+```
+
 ## Options
 
 ### src[string]: required
