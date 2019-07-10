@@ -70,7 +70,7 @@ class CrystallizeImage extends React.Component {
               src: crystallizeImgObj.url,
               alt: crystallizeImgObj.altText
             }}
-          /> : <img onLoad={onImageLoad} src={crystallizeImgObj.url} alt={crystallizeImgObj.altText} />}
+          /> : <img src={crystallizeImgObj.url} alt={crystallizeImgObj.altText} />}
         </picture>
       </>
     } else {
