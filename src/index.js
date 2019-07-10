@@ -56,8 +56,6 @@ class CrystallizeImage extends React.Component {
     }).join(",");
   }
 
-  onImageLoad = e => alert(e.target.currentSrc);
-
   handleCrystallizeImage(crystallizeImgObj, rest) {
 
     if (crystallizeImgObj && crystallizeImgObj.variants) {
@@ -70,8 +68,7 @@ class CrystallizeImage extends React.Component {
           {rest.withZoom && rest.withZoom === true ? <ImageZoom
             image={{
               src: crystallizeImgObj.url,
-              alt: crystallizeImgObj.altText,
-              onLoad: this.onImageLoad
+              alt: crystallizeImgObj.altText
             }}
           /> : <img onLoad={onImageLoad} src={crystallizeImgObj.url} alt={crystallizeImgObj.altText} />}
         </picture>
