@@ -31,8 +31,8 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   const hasVariants = variants.length > 0;
 
   // Determine srcSet
-  const std = variants.filter(v => !v.url.endsWith(".webp"));
-  const webp = variants.filter(v => v.url.endsWith(".webp"));
+  const std = variants.filter(v => v.url && !v.url.endsWith(".webp"));
+  const webp = variants.filter(v => v.url && v.url.endsWith(".webp"));
   const srcSet = std.map(getVariantSrc).join(", ");
   const srcSetWebp = webp.map(getVariantSrc).join(", ");
 
