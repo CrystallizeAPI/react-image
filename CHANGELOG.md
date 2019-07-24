@@ -1,3 +1,9 @@
+## 3.0.0-beta.2 (2019-07-24)
+
+* Updated readme ([0a5d8d6](https://github.com/CrystallizeAPI/react-image/commit/0a5d8d6))
+
+
+
 ## 3.0.0-beta.1 (2019-07-24)
 
 * Build with babel only ([6f558bc](https://github.com/CrystallizeAPI/react-image/commit/6f558bc))
