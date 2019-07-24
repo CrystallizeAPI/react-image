@@ -1,3 +1,9 @@
+## 3.0.0-beta.4 (2019-07-24)
+
+* Fixed bug where sizes was not set ([b973d4d](https://github.com/CrystallizeAPI/react-image/commit/b973d4d))
+
+
+
 ## 3.0.0-beta.3 (2019-07-24)
 
 * Updated readme ([a2562d9](https://github.com/CrystallizeAPI/react-image/commit/a2562d9))
