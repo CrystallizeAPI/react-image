@@ -15,10 +15,10 @@ export default {
       react: "React",
       "react-dom": "ReactDOM",
       "styled-components": "StyledComponents",
-      "react-i18next": "reactI18nextModule"
+      "prop-types": "PropTypes"
     }
   },
-  external: ["react", "react-dom", "styled-components", "react-i18next"],
+  external: ["react", "react-dom", "styled-components", "prop-types"],
   plugins: [
     resolve({
       browser: true,
