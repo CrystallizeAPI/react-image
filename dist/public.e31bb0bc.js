@@ -19134,12 +19134,7 @@ var ReactImage = function ReactImage(_ref) {
       alt = restOfAllProps.altText,
       rest = _objectWithoutProperties(restOfAllProps, ["url", "sizes", "variants", "altText"]);
 
-  var hasVariants = variants.length > 0;
-
-  if (hasVariants && !sizes) {
-    warn("You have provided variants, but not sizes. This affects performance. Check out https://crystallize.com/blog/react-image-sizes-attribute-for-fast-ecommerce");
-  } // Determine srcSet
-
+  var hasVariants = variants.length > 0; // Determine srcSet
 
   var std = variants.filter(function (v) {
     return !v.url.endsWith(".webp");
@@ -19147,10 +19142,10 @@ var ReactImage = function ReactImage(_ref) {
   var webp = variants.filter(function (v) {
     return v.url.endsWith(".webp");
   });
-  var srcSet = std.map(getVariantSrc);
-  var srcSetWebp = webp.map(getVariantSrc); // Ensure fallback src for older browsers
+  var srcSet = std.map(getVariantSrc).join(", ");
+  var srcSetWebp = webp.map(getVariantSrc).join(", "); // Ensure fallback src for older browsers
 
-  var src = url || (hasVariants ? std[0].url : "");
+  var src = url || (hasVariants ? std[0].url : undefined);
 
   if (childRenderFunc) {
     return childRenderFunc(_objectSpread({
@@ -19162,16 +19157,21 @@ var ReactImage = function ReactImage(_ref) {
     }, rest));
   }
 
+  if (hasVariants && !sizes) {
+    warn("You have provided variants, but not sizes. This has a negative impact on performance. Check out https://crystallize.com/blog/react-image-sizes-attribute-for-fast-ecommerce");
+  }
+
   return _react.default.createElement("picture", null, srcSetWebp.length > 0 && _react.default.createElement("source", {
-    srcSet: srcSetWebp.join(", "),
+    srcSet: srcSetWebp,
     type: "image/webp",
     sizes: sizes
   }), srcSet.length > 0 && _react.default.createElement("source", {
-    srcSet: srcSet.join(", "),
+    srcSet: srcSet,
     type: "image/jpg",
     sizes: sizes
   }), _react.default.createElement("img", _extends({
     src: src,
+    sizes: sizes,
     alt: alt
   }, rest)));
 };
@@ -19188,67 +19188,7 @@ ReactImage.propTypes = {
 };
 var _default = ReactImage;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js"}],"images.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = [{
-  url: "https://media.crystallize.com/demo/19/4/9/2/man_with_hat.jpg",
-  altText: null,
-  variants: [{
-    url: "https://media.crystallize.com/demo/19/4/9/2/@100/man_with_hat.jpg",
-    width: 100
-  }, {
-    url: "https://media.crystallize.com/demo/19/4/9/2/@200/man_with_hat.jpg",
-    width: 200
-  }, {
-    url: "https://media.crystallize.com/demo/19/4/9/2/@500/man_with_hat.jpg",
-    width: 500
-  }, {
-    url: "https://media.crystallize.com/demo/19/4/9/2/@768/man_with_hat.jpg",
-    width: 768
-  }, {
-    url: "https://media.crystallize.com/demo/19/4/9/2/@1024/man_with_hat.jpg",
-    width: 1024
-  }]
-}, {
-  url: "https://media.crystallize.com/demo/19/4/9/3/potatoe_pig.jpg",
-  altText: null,
-  variants: [{
-    url: "https://media.crystallize.com/demo/19/4/9/3/@100/potatoe_pig.jpg",
-    width: 100
-  }, {
-    url: "https://media.crystallize.com/demo/19/4/9/3/@200/potatoe_pig.jpg",
-    width: 200
-  }, {
-    url: "https://media.crystallize.com/demo/19/4/9/3/@500/potatoe_pig.jpg",
-    width: 500
-  }, {
-    url: "https://media.crystallize.com/demo/19/4/9/3/@768/potatoe_pig.jpg",
-    width: 768
-  }]
-}, {
-  url: "https://media.crystallize.com/demo/19/4/9/5/happyface.jpg",
-  altText: null,
-  variants: [{
-    url: "https://media.crystallize.com/demo/19/4/9/5/@100/happyface.jpg",
-    width: 100
-  }, {
-    url: "https://media.crystallize.com/demo/19/4/9/5/@200/happyface.jpg",
-    width: 200
-  }, {
-    url: "https://media.crystallize.com/demo/19/4/9/5/@500/happyface.jpg",
-    width: 500
-  }, {
-    url: "https://media.crystallize.com/demo/19/4/9/5/@768/happyface.jpg",
-    width: 768
-  }]
-}];
-exports.default = _default;
-},{}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -19259,16 +19199,74 @@ require("./index.css");
 
 var _src = _interopRequireDefault(require("../src"));
 
-var _images = _interopRequireDefault(require("./images"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-_reactDom.default.render(_react.default.createElement("div", null, _react.default.createElement("h1", null, "Images widths: 100px up to 1000px wide screen. Then 400px"), _react.default.createElement(_src.default, _extends({}, _images.default[0], {
-  sizes: "(min-width: 999px) 100px, 400px"
-})), _react.default.createElement("div", null, " - - - ")), document.getElementById("root"));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./index.css":"index.css","../src":"../src/index.js","./images":"images.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var image = {
+  url: "https://media.crystallize.com/demo/19/7/24/2/candy_kid.jpg",
+  altText: null,
+  variants: [{
+    url: "https://media.crystallize.com/demo/19/7/24/2/@100/candy_kid.webp",
+    width: 100
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/2/@500/candy_kid.jpg",
+    width: 500
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/2/@200/candy_kid.webp",
+    width: 200
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/2/@768/candy_kid.jpg",
+    width: 768
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/2/@100/candy_kid.jpg",
+    width: 100
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/2/@200/candy_kid.jpg",
+    width: 200
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/2/@500/candy_kid.webp",
+    width: 500
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/1/@100/candy_kid.jpg",
+    width: 100
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/1/@200/candy_kid.webp",
+    width: 200
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/1/@500/candy_kid.jpg",
+    width: 500
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/1/@100/candy_kid.webp",
+    width: 100
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/1/@200/candy_kid.jpg",
+    width: 200
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/1/@768/candy_kid.jpg",
+    width: 768
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/1/@500/candy_kid.webp",
+    width: 500
+  }, {
+    url: "https://media.crystallize.com/demo/19/7/24/1/@768/candy_kid.webp",
+    width: 768
+  }]
+};
+
+_reactDom.default.render(_react.default.createElement("div", null, _react.default.createElement("h1", null, "Images widths: 100px up to 1000px wide screen. Then 400px"), _react.default.createElement("hr", null), _react.default.createElement("figure", null, _react.default.createElement("figcaption", null, "Data from Crystallize"), _react.default.createElement(_src.default, _extends({}, image, {
+  sizes: "(max-width: 999px) 100px, 400px"
+}))), _react.default.createElement("hr", null), _react.default.createElement("figure", null, _react.default.createElement("figcaption", null, "Render as regular img"), _react.default.createElement(_src.default, {
+  src: image.url,
+  alt: "Alt text"
+})), _react.default.createElement("hr", null), _react.default.createElement(_src.default, image, function (p) {
+  return _react.default.createElement("div", {
+    style: {
+      textAlign: "center"
+    }
+  }, "Hi from child as render func");
+})), document.getElementById("root"));
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./index.css":"index.css","../src":"../src/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -19296,7 +19294,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59029" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50522" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

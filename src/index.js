@@ -30,20 +30,14 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   const { url, sizes, variants, altText: alt, ...rest } = restOfAllProps;
   const hasVariants = variants.length > 0;
 
-  if (hasVariants && !sizes) {
-    warn(
-      "You have provided variants, but not sizes. This affects performance. Check out https://crystallize.com/blog/react-image-sizes-attribute-for-fast-ecommerce"
-    );
-  }
-
   // Determine srcSet
   const std = variants.filter(v => !v.url.endsWith(".webp"));
   const webp = variants.filter(v => v.url.endsWith(".webp"));
-  const srcSet = std.map(getVariantSrc);
-  const srcSetWebp = webp.map(getVariantSrc);
+  const srcSet = std.map(getVariantSrc).join(", ");
+  const srcSetWebp = webp.map(getVariantSrc).join(", ");
 
   // Ensure fallback src for older browsers
-  const src = url || (hasVariants ? std[0].url : "");
+  const src = url || (hasVariants ? std[0].url : undefined);
 
   if (childRenderFunc) {
     return childRenderFunc({
@@ -56,20 +50,22 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
     });
   }
 
+  if (hasVariants && !sizes) {
+    warn(
+      "You have provided variants, but not sizes. This has a negative impact on performance. Check out https://crystallize.com/blog/react-image-sizes-attribute-for-fast-ecommerce"
+    );
+  }
+
   return (
     <picture>
       {srcSetWebp.length > 0 && (
-        <source
-          srcSet={srcSetWebp.join(", ")}
-          type="image/webp"
-          sizes={sizes}
-        />
+        <source srcSet={srcSetWebp} type="image/webp" sizes={sizes} />
       )}
       {srcSet.length > 0 && (
-        <source srcSet={srcSet.join(", ")} type="image/jpg" sizes={sizes} />
+        <source srcSet={srcSet} type="image/jpg" sizes={sizes} />
       )}
 
-      <img src={src} alt={alt} {...rest} />
+      <img src={src} sizes={sizes} alt={alt} {...rest} />
     </picture>
   );
 };
