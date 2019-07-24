@@ -22,7 +22,7 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   }
 
   // Continue using data from Crystallize
-  const { url, sizes, variants, ...rest } = restOfAllProps;
+  const { url, sizes, variants, altText: alt, ...rest } = restOfAllProps;
   const hasVariants = variants.length > 0;
 
   if (hasVariants && !sizes) {
@@ -46,6 +46,7 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
       srcSet,
       srcSetWebp,
       sizes,
+      alt,
       ...rest
     });
   }
@@ -69,7 +70,7 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
         />
       )}
 
-      <img src={src} {...rest} />
+      <img src={src} alt={alt} {...rest} />
     </picture>
   );
 };
