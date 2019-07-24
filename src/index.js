@@ -27,7 +27,7 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   }
 
   // Continue using data from Crystallize
-  const { url, sizes, variants, altText: alt, ...rest } = restOfAllProps;
+  const { url, sizes, variants = [], altText: alt, ...rest } = restOfAllProps;
   const hasVariants = variants.length > 0;
 
   // Determine srcSet
