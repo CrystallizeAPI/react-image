@@ -1,3 +1,9 @@
+## 3.0.0-beta.0 (2019-07-24)
+
+* Complete refactor wip ([2a87767](https://github.com/CrystallizeAPI/react-image/commit/2a87767))
+
+
+
 ## 2.4.0 (2018-12-05)
 
 * Install instructions in readme ([7af152e](https://github.com/CrystallizeAPI/react-image/commit/7af152e))
