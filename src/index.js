@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ImageZoom from 'react-medium-image-zoom';
+import ImageZoom from "react-medium-image-zoom";
 
 // The default image variations created by Crystallize
 const imageVariations = "320 414 768 1280 1536 1920 2560 3200".split(" ");
@@ -50,39 +50,71 @@ class CrystallizeImage extends React.Component {
   }
 
   getSrcSet(srcVariations, type) {
-    return srcVariations.map(variant => {
-      const format = variant.url.split('.').slice(-1)[0];
-      if (format === type) return `${variant.url} ${variant.width}w`;
-    }).join(",");
+    return srcVariations
+      .map(variant => {
+        const format = variant.url.split(".").slice(-1)[0];
+        if (format === type) return `${variant.url} ${variant.width}w`;
+      })
+      .join(",");
   }
 
   handleCrystallizeImage(crystallizeImgObj, rest) {
-
     if (crystallizeImgObj && crystallizeImgObj.variants) {
-      const webpSrcSet = this.getSrcSet(crystallizeImgObj.variants, 'webp');
-      const jpgSrcSet = this.getSrcSet(crystallizeImgObj.variants, 'jpg');
-      return <>
-        <picture>
-          <source srcSet={webpSrcSet} src={crystallizeImgObj.url} type="image/webp" sizes={rest.sizes ? rest.sizes : '(max-width: 700px) 500px, 800px'} />
-          <source srcSet={jpgSrcSet} src={crystallizeImgObj.url} type="image/jpg" sizes={rest.sizes ? rest.sizes : '(max-width: 700px) 500px, 800px'} />
-          {rest.withZoom && rest.withZoom === true ? <ImageZoom
-            image={{
-              src: crystallizeImgObj.url,
-              alt: crystallizeImgObj.altText
-            }}
-          /> : <img src={crystallizeImgObj.url} alt={crystallizeImgObj.altText} />}
-        </picture>
-      </>
+      const webpSrcSet = this.getSrcSet(crystallizeImgObj.variants, "webp");
+      const jpgSrcSet = this.getSrcSet(crystallizeImgObj.variants, "jpg");
+      return (
+        <>
+          <picture>
+            <source
+              srcSet={webpSrcSet}
+              src={crystallizeImgObj.url}
+              type="image/webp"
+              sizes={
+                rest.sizes ? rest.sizes : "(max-width: 700px) 500px, 800px"
+              }
+            />
+            <source
+              srcSet={jpgSrcSet}
+              src={crystallizeImgObj.url}
+              type="image/jpg"
+              sizes={
+                rest.sizes ? rest.sizes : "(max-width: 700px) 500px, 800px"
+              }
+            />
+            {rest.withZoom && rest.withZoom === true ? (
+              <ImageZoom
+                image={{
+                  src: crystallizeImgObj.url,
+                  alt: crystallizeImgObj.altText
+                }}
+              />
+            ) : (
+              <img
+                src={crystallizeImgObj.url}
+                alt={crystallizeImgObj.altText}
+              />
+            )}
+          </picture>
+        </>
+      );
     } else {
-      return <img src={crystallizeImgObj.url} {...rest} />
+      return <img src={crystallizeImgObj.url} {...rest} />;
     }
   }
 
   render() {
-    const { media, src, srcVariations, product_image, imageZoom, crystallizeImgObj, ...rest } = this.props;
+    const {
+      media,
+      src,
+      srcVariations,
+      product_image,
+      imageZoom,
+      crystallizeImgObj,
+      ...rest
+    } = this.props;
     let srcToUse = src;
 
-    if (crystallizeImgObj, rest) {
+    if (crystallizeImgObj && crystallizeImgObj.url && rest) {
       return this.handleCrystallizeImage(crystallizeImgObj, rest);
     }
 
