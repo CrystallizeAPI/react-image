@@ -28,8 +28,8 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development parcel ./public/index.html",
-    "build": "rollup -c --sourcemap",
-    "babel": "babel src/index.js --out-file build/index.js --source-maps",
+    "build:rollup": "rollup -c --sourcemap",
+    "build": "babel src/index.js --out-file build/index.js --source-maps",
     "prepare": "npm run build"
   },
   "main": "build/index.js"
