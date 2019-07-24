@@ -27,7 +27,14 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   }
 
   // Continue using data from Crystallize
-  const { url, sizes, variants = [], altText: alt, ...rest } = restOfAllProps;
+  const {
+    url,
+    sizes,
+    variants = [],
+    altText: alt,
+    className,
+    ...rest
+  } = restOfAllProps;
   const hasVariants = variants.length > 0;
 
   // Determine srcSet
@@ -46,6 +53,7 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
       srcSetWebp,
       sizes,
       alt,
+      className,
       ...rest
     });
   }
@@ -57,7 +65,7 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   }
 
   return (
-    <picture>
+    <picture className={className}>
       {srcSetWebp.length > 0 && (
         <source srcSet={srcSetWebp} type="image/webp" sizes={sizes} />
       )}
