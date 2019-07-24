@@ -1,3 +1,9 @@
+## <small>2.5.3 (2019-07-24)</small>
+
+* Bugfix for when url is not present in crystallizeImgObj ([f2bf01a](https://github.com/CrystallizeAPI/react-image/commit/f2bf01a))
+
+
+
 ## 2.4.0 (2018-12-05)
 
 * Install instructions in readme ([7af152e](https://github.com/CrystallizeAPI/react-image/commit/7af152e))
