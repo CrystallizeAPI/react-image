@@ -1,7 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const DEV = process.env.NODE_ENV !== "production";
+let DEV = false;
+try {
+  DEV = process.env.NODE_ENV !== "production";
+} catch (e) {
+  DEV = false;
+}
 
 function warn(msg) {
   if (DEV) {
@@ -32,8 +37,8 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   }
 
   // Determine srcSet
-  const std = variants.filter(v => !v.url.endsWidth(".webp"));
-  const webp = variants.filter(v => v.url.endsWidth(".webp"));
+  const std = variants.filter(v => !v.url.endsWith(".webp"));
+  const webp = variants.filter(v => v.url.endsWith(".webp"));
   const srcSet = std.map(getVariantSrc);
   const srcSetWebp = webp.map(getVariantSrc);
 
@@ -56,18 +61,12 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
       {srcSetWebp.length > 0 && (
         <source
           srcSet={srcSetWebp.join(", ")}
-          src={webp[0].url}
           type="image/webp"
           sizes={sizes}
         />
       )}
       {srcSet.length > 0 && (
-        <source
-          srcSet={srcSet.join(", ")}
-          src={std[0].url}
-          type="image/jpg"
-          sizes={sizes}
-        />
+        <source srcSet={srcSet.join(", ")} type="image/jpg" sizes={sizes} />
       )}
 
       <img src={src} alt={alt} {...rest} />

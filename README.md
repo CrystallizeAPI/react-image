@@ -69,9 +69,3 @@ const imageFromCrystallize = {
   }}
 </Image>
 ```
-
-## Options
-
-### src[string]: required
-
-### alt: required

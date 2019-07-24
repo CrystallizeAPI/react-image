@@ -7,9 +7,10 @@ import images from "./images";
 
 ReactDOM.render(
   <div>
-    <Module {...images[0]} sizes="(min-width: 900px) 800px, 80vw" />
+    <h1>Images widths: 100px up to 1000px wide screen. Then 400px</h1>
+    <Module {...images[0]} sizes="(min-width: 999px) 100px, 400px" />
     <div> - - - </div>
-    <Module
+    {/* <Module
       src={images[0].url}
       alt="Alt text"
       sizes="(min-width: 900px) 800px, 80vw"
@@ -19,7 +20,7 @@ ReactDOM.render(
         console.log(p);
         return <div>Hey from child as render func</div>;
       }}
-    </Module>
+    </Module> */}
   </div>,
   document.getElementById("root")
 );
