@@ -1,3 +1,9 @@
+## 3.0.0-beta.5 (2019-07-24)
+
+* Default value for variants ([a3bbcca](https://github.com/CrystallizeAPI/react-image/commit/a3bbcca))
+
+
+
 ## 3.0.0-beta.4 (2019-07-24)
 
 * Fixed bug where sizes was not set ([b973d4d](https://github.com/CrystallizeAPI/react-image/commit/b973d4d))
