@@ -1,3 +1,9 @@
+## 3.0.0-beta.7 (2019-07-24)
+
+* className from props is set to picture tag ([673bc56](https://github.com/CrystallizeAPI/react-image/commit/673bc56))
+
+
+
 ## 3.0.0-beta.6 (2019-07-24)
 
 * Don't break if url is not present on a variant ([1d3b679](https://github.com/CrystallizeAPI/react-image/commit/1d3b679))
