@@ -29,7 +29,7 @@ const imageFromCrystallize = {
 />
 ```
 
-## Render child
+## Render child function
 
 ```
 const imageFromCrystallize = {
