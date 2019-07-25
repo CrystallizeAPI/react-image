@@ -31,10 +31,13 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
     url,
     sizes,
     variants = [],
-    altText: alt,
+    altText,
     className,
     ...rest
   } = restOfAllProps;
+
+  const alt = rest.alt || altText;
+
   const hasVariants = variants.length > 0;
 
   // Determine srcSet
@@ -52,9 +55,9 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
       srcSet,
       srcSetWebp,
       sizes,
-      alt,
       className,
-      ...rest
+      ...rest,
+      alt
     });
   }
 
@@ -62,6 +65,11 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
     warn(
       "You have provided variants, but not sizes. This has a negative impact on performance. Check out https://crystallize.com/blog/react-image-sizes-attribute-for-fast-ecommerce"
     );
+  }
+
+  // Check alt for null or undefined
+  if (alt == null) {
+    warn("Missing alt attribute");
   }
 
   return (
@@ -73,7 +81,7 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
         <source srcSet={srcSet} type="image/jpg" sizes={sizes} />
       )}
 
-      <img src={src} sizes={sizes} alt={alt} {...rest} />
+      <img src={src} sizes={sizes} {...rest} alt={alt} />
     </picture>
   );
 };

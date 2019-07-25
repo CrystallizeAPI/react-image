@@ -6,7 +6,7 @@ import Module from "../src";
 
 const image = {
   url: "https://media.crystallize.com/demo/19/7/24/2/candy_kid.jpg",
-  altText: null,
+  altText: "Illustration of man with bag of chips",
   variants: [
     {
       url: "https://media.crystallize.com/demo/19/7/24/2/@100/candy_kid.webp",

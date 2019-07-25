@@ -19130,17 +19130,20 @@ var ReactImage = function ReactImage(_ref) {
 
   var url = restOfAllProps.url,
       sizes = restOfAllProps.sizes,
-      variants = restOfAllProps.variants,
-      alt = restOfAllProps.altText,
-      rest = _objectWithoutProperties(restOfAllProps, ["url", "sizes", "variants", "altText"]);
+      _restOfAllProps$varia = restOfAllProps.variants,
+      variants = _restOfAllProps$varia === void 0 ? [] : _restOfAllProps$varia,
+      altText = restOfAllProps.altText,
+      className = restOfAllProps.className,
+      rest = _objectWithoutProperties(restOfAllProps, ["url", "sizes", "variants", "altText", "className"]);
 
+  var alt = rest.alt || altText;
   var hasVariants = variants.length > 0; // Determine srcSet
 
   var std = variants.filter(function (v) {
-    return !v.url.endsWith(".webp");
+    return v.url && !v.url.endsWith(".webp");
   });
   var webp = variants.filter(function (v) {
-    return v.url.endsWith(".webp");
+    return v.url && v.url.endsWith(".webp");
   });
   var srcSet = std.map(getVariantSrc).join(", ");
   var srcSetWebp = webp.map(getVariantSrc).join(", "); // Ensure fallback src for older browsers
@@ -19153,15 +19156,24 @@ var ReactImage = function ReactImage(_ref) {
       srcSet: srcSet,
       srcSetWebp: srcSetWebp,
       sizes: sizes,
+      className: className
+    }, rest, {
       alt: alt
-    }, rest));
+    }));
   }
 
   if (hasVariants && !sizes) {
     warn("You have provided variants, but not sizes. This has a negative impact on performance. Check out https://crystallize.com/blog/react-image-sizes-attribute-for-fast-ecommerce");
+  } // Check alt for null or undefined
+
+
+  if (alt == null) {
+    warn("Missing alt attribute");
   }
 
-  return _react.default.createElement("picture", null, srcSetWebp.length > 0 && _react.default.createElement("source", {
+  return _react.default.createElement("picture", {
+    className: className
+  }, srcSetWebp.length > 0 && _react.default.createElement("source", {
     srcSet: srcSetWebp,
     type: "image/webp",
     sizes: sizes
@@ -19171,9 +19183,10 @@ var ReactImage = function ReactImage(_ref) {
     sizes: sizes
   }), _react.default.createElement("img", _extends({
     src: src,
-    sizes: sizes,
+    sizes: sizes
+  }, rest, {
     alt: alt
-  }, rest)));
+  })));
 };
 
 ReactImage.propTypes = {
@@ -19205,7 +19218,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 var image = {
   url: "https://media.crystallize.com/demo/19/7/24/2/candy_kid.jpg",
-  altText: null,
+  altText: "Illustration of man with bag of chips",
   variants: [{
     url: "https://media.crystallize.com/demo/19/7/24/2/@100/candy_kid.webp",
     width: 100
@@ -19294,7 +19307,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50522" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54801" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

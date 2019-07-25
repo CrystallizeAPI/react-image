@@ -42,7 +42,7 @@ const imageFromCrystallize = {
     {...imageFromCrystallize}
     sizes="(min-width: 700px) 400px, 700px"
 >
-  {({ src, srcSet, srcSetWebp, ...rest }) => {
+  {({ src, srcSet, srcSetWebp, sizes, ...rest }) => {
       // Roll your own render
       return (
           <picture>
@@ -51,7 +51,6 @@ const imageFromCrystallize = {
                 srcSet={srcSetWebp.join(", ")}
                 src={webp[0].url}
                 type="image/webp"
-                sizes={sizes}
                 />
             )}
             {srcSet.length > 0 && (
@@ -59,11 +58,10 @@ const imageFromCrystallize = {
                 srcSet={srcSet.join(", ")}
                 src={std[0].url}
                 type="image/jpg"
-                sizes={sizes}
                 />
             )}
 
-            <img src={src} {...rest} />
+            <img src={src} sizes={sizes} {...rest} />
         </picture>
       )
   }}
