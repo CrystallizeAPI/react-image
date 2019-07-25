@@ -1,3 +1,10 @@
+## 3.0.0-beta.8 (2019-07-25)
+
+* Updated readme ([29eeaa5](https://github.com/CrystallizeAPI/react-image/commit/29eeaa5))
+* Warn if no alt attr ([2e9b02f](https://github.com/CrystallizeAPI/react-image/commit/2e9b02f))
+
+
+
 ## 3.0.0-beta.7 (2019-07-24)
 
 * className from props is set to picture tag ([673bc56](https://github.com/CrystallizeAPI/react-image/commit/673bc56))
