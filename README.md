@@ -16,27 +16,54 @@ yarn add @crystallize/react-image
 
 ```
 import Image from '@crystallize/react-image';
-```
 
-```
+const imageFromCrystallize = {
+    url: '...',
+    variants: [...],
+    altText: ''
+}
+
 <Image
-    src={src}
-    alt={image.alt}
+    {...imageFromCrystallize}
+    sizes="(min-width: 700px) 400px, 700px"
 />
 ```
 
-## Support for PIM Image objects (v2.5.0+)
+## Render child function
 
 ```
+const imageFromCrystallize = {
+    url: '...',
+    variants: [...],
+    altText: ''
+}
+
 <Image
-    crystallizeImgObj={i}
-    withZoom // Optional: Click image to zoom in
-    sizes="" // Optional: Replace default media queries for srcset
-/>
+    {...imageFromCrystallize}
+    sizes="(min-width: 700px) 400px, 700px"
+>
+  {({ src, srcSet, srcSetWebp, sizes, ...rest }) => {
+      // Roll your own render
+      return (
+          <picture>
+            {srcSetWebp.length > 0 && (
+                <source
+                srcSet={srcSetWebp.join(", ")}
+                src={webp[0].url}
+                type="image/webp"
+                />
+            )}
+            {srcSet.length > 0 && (
+                <source
+                srcSet={srcSet.join(", ")}
+                src={std[0].url}
+                type="image/jpg"
+                />
+            )}
+
+            <img src={src} sizes={sizes} {...rest} />
+        </picture>
+      )
+  }}
+</Image>
 ```
-
-## Options
-
-### src[string]: required
-
-### alt: required

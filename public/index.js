@@ -4,57 +4,96 @@ import "./index.css";
 
 import Module from "../src";
 
-const media = {
-  url:
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair.jpeg",
-  product_image_variations: [
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_300.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_320.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_414.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_768.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_828.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1280.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1366.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1440.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1536.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_1920.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_2560.jpeg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/131_lounge_chair/_resized_3200.jpeg"
-  ]
-};
-
-const mediaGif = {
-  url:
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1.gif",
-  product_image_variations: [
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_300.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_320.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_414.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_768.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_828.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_1280.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_1366.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_1440.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_1536.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_1920.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_2560.jpg",
-    "https://accelerated.atoms.crystallize.digital/snowball/images/http2-vs-http1/_resized_3200.jpg"
+const image = {
+  url: "https://media.crystallize.com/demo/19/7/24/2/candy_kid.jpg",
+  altText: "Illustration of man with bag of chips",
+  variants: [
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/2/@100/candy_kid.webp",
+      width: 100
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/2/@500/candy_kid.jpg",
+      width: 500
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/2/@200/candy_kid.webp",
+      width: 200
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/2/@768/candy_kid.jpg",
+      width: 768
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/2/@100/candy_kid.jpg",
+      width: 100
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/2/@200/candy_kid.jpg",
+      width: 200
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/2/@500/candy_kid.webp",
+      width: 500
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/1/@100/candy_kid.jpg",
+      width: 100
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/1/@200/candy_kid.webp",
+      width: 200
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/1/@500/candy_kid.jpg",
+      width: 500
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/1/@100/candy_kid.webp",
+      width: 100
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/1/@200/candy_kid.jpg",
+      width: 200
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/1/@768/candy_kid.jpg",
+      width: 768
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/1/@500/candy_kid.webp",
+      width: 500
+    },
+    {
+      url: "https://media.crystallize.com/demo/19/7/24/1/@768/candy_kid.webp",
+      width: 768
+    }
   ]
 };
 
 ReactDOM.render(
   <div>
-    <Module
-      media={media}
-      alt="Alt text"
-      sizes="(min-width: 900px) 800px, 80vw"
-    />
-    <div> - - - </div>
-    <Module
-      src={media.url}
-      alt="Alt text"
-      sizes="(min-width: 900px) 800px, 80vw"
-    />
+    <h1>Images widths: 100px up to 1000px wide screen. Then 400px</h1>
+    <hr />
+    <figure>
+      <figcaption>Data from Crystallize</figcaption>
+      <Module {...image} sizes="(max-width: 999px) 100px, 400px" />
+    </figure>
+    <hr />
+    <figure>
+      <figcaption>Render as regular img</figcaption>
+      <Module src={image.url} alt="Alt text" />
+    </figure>
+    <hr />
+    <Module {...image}>
+      {p => {
+        return (
+          <div style={{ textAlign: "center" }}>
+            Hi from child as render func
+          </div>
+        );
+      }}
+    </Module>
   </div>,
   document.getElementById("root")
 );

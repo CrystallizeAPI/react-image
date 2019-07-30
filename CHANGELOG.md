@@ -1,3 +1,12 @@
+
+
+
+
+## 3.0.0 (2019-07-30)
+* Support only for new data schema from Crystallize
+
+
+
 ## <small>2.5.3 (2019-07-24)</small>
 
 * Bugfix for when url is not present in crystallizeImgObj ([f2bf01a](https://github.com/CrystallizeAPI/react-image/commit/f2bf01a))
