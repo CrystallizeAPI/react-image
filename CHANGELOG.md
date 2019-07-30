@@ -1,3 +1,8 @@
+## 3.0.0 (2019-07-30)
+
+
+
+
 ## 3.0.0-beta.8 (2019-07-25)
 
 * Updated readme ([29eeaa5](https://github.com/CrystallizeAPI/react-image/commit/29eeaa5))
