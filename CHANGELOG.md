@@ -1,3 +1,17 @@
+## <small>3.0.1 (2019-07-31)</small>
+
+* Better check for variants existance ([3bb2d1d](https://github.com/CrystallizeAPI/react-image/commit/3bb2d1d))
+* Bump lodash from 4.17.5 to 4.17.15 ([0c57d20](https://github.com/CrystallizeAPI/react-image/commit/0c57d20))
+
+
+
+## <small>2.5.3 (2019-07-24)</small>
+
+* Bugfix for when url is not present in crystallizeImgObj ([f2bf01a](https://github.com/CrystallizeAPI/react-image/commit/f2bf01a))
+* Release 2.5.3 ([96f790e](https://github.com/CrystallizeAPI/react-image/commit/96f790e))
+
+
+
 
 
 
