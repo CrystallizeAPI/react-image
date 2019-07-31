@@ -27,22 +27,16 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   }
 
   // Continue using data from Crystallize
-  const {
-    url,
-    sizes,
-    variants = [],
-    altText,
-    className,
-    ...rest
-  } = restOfAllProps;
+  const { url, sizes, variants, altText, className, ...rest } = restOfAllProps;
 
+  const vars = variants || [];
   const alt = rest.alt || altText;
 
-  const hasVariants = variants.length > 0;
+  const hasVariants = vars.length > 0;
 
   // Determine srcSet
-  const std = variants.filter(v => v.url && !v.url.endsWith(".webp"));
-  const webp = variants.filter(v => v.url && v.url.endsWith(".webp"));
+  const std = vars.filter(v => v.url && !v.url.endsWith(".webp"));
+  const webp = vars.filter(v => v.url && v.url.endsWith(".webp"));
   const srcSet = std.map(getVariantSrc).join(", ");
   const srcSetWebp = webp.map(getVariantSrc).join(", ");
 
