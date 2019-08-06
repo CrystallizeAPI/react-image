@@ -30,7 +30,7 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   const { url, sizes, variants, altText, className, ...rest } = restOfAllProps;
 
   const vars = variants || [];
-  const alt = rest.alt || altText;
+  const alt = typeof rest.alt === "string" ? alt : altText;
 
   const hasVariants = vars.length > 0;
 
