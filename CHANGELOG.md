@@ -1,3 +1,9 @@
+## <small>3.0.2 (2019-08-06)</small>
+
+* Better resolution of alt text ([168b0d8](https://github.com/CrystallizeAPI/react-image/commit/168b0d8))
+
+
+
 ## <small>3.0.1 (2019-07-31)</small>
 
 * Better check for variants existance ([3bb2d1d](https://github.com/CrystallizeAPI/react-image/commit/3bb2d1d))
