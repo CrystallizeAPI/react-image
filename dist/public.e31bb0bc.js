@@ -19130,19 +19130,20 @@ var ReactImage = function ReactImage(_ref) {
 
   var url = restOfAllProps.url,
       sizes = restOfAllProps.sizes,
-      _restOfAllProps$varia = restOfAllProps.variants,
-      variants = _restOfAllProps$varia === void 0 ? [] : _restOfAllProps$varia,
+      variants = restOfAllProps.variants,
       altText = restOfAllProps.altText,
+      altPassed = restOfAllProps.alt,
       className = restOfAllProps.className,
-      rest = _objectWithoutProperties(restOfAllProps, ["url", "sizes", "variants", "altText", "className"]);
+      rest = _objectWithoutProperties(restOfAllProps, ["url", "sizes", "variants", "altText", "alt", "className"]);
 
-  var alt = rest.alt || altText;
-  var hasVariants = variants.length > 0; // Determine srcSet
+  var vars = variants || [];
+  var alt = typeof altPassed === "string" ? altPassed : altText;
+  var hasVariants = vars.length > 0; // Determine srcSet
 
-  var std = variants.filter(function (v) {
+  var std = vars.filter(function (v) {
     return v.url && !v.url.endsWith(".webp");
   });
-  var webp = variants.filter(function (v) {
+  var webp = vars.filter(function (v) {
     return v.url && v.url.endsWith(".webp");
   });
   var srcSet = std.map(getVariantSrc).join(", ");
@@ -19307,7 +19308,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55819" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64602" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

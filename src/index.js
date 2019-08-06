@@ -27,10 +27,18 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   }
 
   // Continue using data from Crystallize
-  const { url, sizes, variants, altText, className, ...rest } = restOfAllProps;
+  const {
+    url,
+    sizes,
+    variants,
+    altText,
+    alt: altPassed,
+    className,
+    ...rest
+  } = restOfAllProps;
 
   const vars = variants || [];
-  const alt = typeof rest.alt === "string" ? alt : altText;
+  const alt = typeof altPassed === "string" ? altPassed : altText;
 
   const hasVariants = vars.length > 0;
 
