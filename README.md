@@ -57,7 +57,7 @@ const imageFromCrystallize = {
                 <source
                 srcSet={srcSet.join(", ")}
                 src={std[0].url}
-                type="image/jpg"
+                type="image/jpeg"
                 />
             )}
 

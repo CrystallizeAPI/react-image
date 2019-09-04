@@ -80,7 +80,7 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
         <source srcSet={srcSetWebp} type="image/webp" sizes={sizes} />
       )}
       {srcSet.length > 0 && (
-        <source srcSet={srcSet} type="image/jpg" sizes={sizes} />
+        <source srcSet={srcSet} type="image/jpeg" sizes={sizes} />
       )}
 
       <img src={src} sizes={sizes} {...rest} alt={alt} />
