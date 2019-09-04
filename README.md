@@ -25,7 +25,7 @@ const imageFromCrystallize = {
 
 <Image
     {...imageFromCrystallize}
-    sizes="(min-width: 700px) 400px, 700px"
+    sizes="(max-width: 700px) 90vw, 700px"
 />
 ```
 
@@ -40,7 +40,7 @@ const imageFromCrystallize = {
 
 <Image
     {...imageFromCrystallize}
-    sizes="(min-width: 700px) 400px, 700px"
+    sizes="(max-width: 700px) 90vw, 700px"
 >
   {({ src, srcSet, srcSetWebp, sizes, ...rest }) => {
       // Roll your own render
