@@ -1,3 +1,9 @@
+## <small>3.0.4 (2019-09-04)</small>
+
+* Corrected typo for jpg mime type ([50ba61c](https://github.com/CrystallizeAPI/react-image/commit/50ba61c))
+
+
+
 ## <small>3.0.3 (2019-08-06)</small>
 
 * Fix of alt image ([4e10550](https://github.com/CrystallizeAPI/react-image/commit/4e10550))
