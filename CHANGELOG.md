@@ -1,3 +1,9 @@
+## 3.1.0 (2020-03-06)
+
+* Remove missing alt warning ([a266c73](https://github.com/CrystallizeAPI/react-image/commit/a266c73))
+
+
+
 ## <small>3.0.5 (2019-09-04)</small>
 
 * Updated readme ([3f2607b](https://github.com/CrystallizeAPI/react-image/commit/3f2607b))
