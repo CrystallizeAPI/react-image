@@ -69,11 +69,6 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
     );
   }
 
-  // Check alt for null or undefined
-  if (alt == null) {
-    warn("Missing alt attribute");
-  }
-
   return (
     <picture className={className}>
       {srcSetWebp.length > 0 && (
