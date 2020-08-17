@@ -14,7 +14,7 @@ function warn(msg) {
   }
 }
 
-const getVariantSrc = variant => `${variant.url} ${variant.width}w`;
+const getVariantSrc = (variant) => `${variant.url} ${variant.width}w`;
 
 const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   // Regular image
@@ -43,10 +43,23 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   const hasVariants = vars.length > 0;
 
   // Determine srcSet
-  const std = vars.filter(v => v.url && !v.url.endsWith(".webp"));
-  const webp = vars.filter(v => v.url && v.url.endsWith(".webp"));
+  const std = vars.filter((v) => v.url && !v.url.endsWith(".webp"));
+  const webp = vars.filter((v) => v.url && v.url.endsWith(".webp"));
   const srcSet = std.map(getVariantSrc).join(", ");
   const srcSetWebp = webp.map(getVariantSrc).join(", ");
+
+  // Determine the original file extension
+  let originalFileExtension = "jpeg";
+  if (std.length > 0) {
+    ({
+      groups: { name: originalFileExtension },
+    } = std[0].url.match(/\.(?<name>[^\.]+)$/));
+
+    // Provide correct mime type for jpg
+    if (originalFileExtension === "jpg") {
+      originalFileExtension = "jpeg";
+    }
+  }
 
   // Ensure fallback src for older browsers
   const src = url || (hasVariants ? std[0].url : undefined);
@@ -59,7 +72,8 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
       sizes,
       className,
       ...rest,
-      alt
+      alt,
+      originalFileExtension,
     });
   }
 
@@ -75,7 +89,11 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
         <source srcSet={srcSetWebp} type="image/webp" sizes={sizes} />
       )}
       {srcSet.length > 0 && (
-        <source srcSet={srcSet} type="image/jpeg" sizes={sizes} />
+        <source
+          srcSet={srcSet}
+          type={`image/${originalFileExtension}`}
+          sizes={sizes}
+        />
       )}
 
       <img src={src} sizes={sizes} {...rest} alt={alt} />
@@ -90,10 +108,10 @@ ReactImage.propTypes = {
   variants: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string,
-      width: PropTypes.number
+      width: PropTypes.number,
     })
   ),
-  sizes: PropTypes.string
+  sizes: PropTypes.string,
 };
 
 export default ReactImage;
