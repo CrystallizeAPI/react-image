@@ -12,21 +12,17 @@
         "react",
         "image"
     ],
-    "files": [
-        "build"
-    ],
-    "exports": {
-        ".": {
-            "browser": "./build/index.module.js",
-            "umd": "./build/index.umd.js",
-            "require": "./build/index.js"
-        }
-    },
     "types": "src/index.d.ts",
     "source": "src/index.js",
     "main": "build/index.js",
     "module": "build/index.module.js",
     "unpkg": "build/index.umd.js",
+    "files": [
+        "build"
+    ],
+    "exports": {
+        ".": "./build/index.module.js"
+    },
     "devDependencies": {
         "microbundle": "^0.12.4",
         "parcel": "^1.12.4",
