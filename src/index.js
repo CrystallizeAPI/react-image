@@ -29,6 +29,9 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
 
   const hasVariants = vars.length > 0;
 
+  // Get the biggest image from the variants
+  const biggestImage = vars.sort((a, b) => b.width - a.width)[0];
+
   // Determine srcSet
   const std = vars.filter((v) => v.url && !v.url.endsWith(".webp"));
   const webp = vars.filter((v) => v.url && v.url.endsWith(".webp"));
@@ -77,7 +80,14 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
         />
       )}
 
-      <img src={src} sizes={sizes} {...rest} alt={alt} />
+      <img
+        src={src}
+        sizes={sizes}
+        width={biggestImage.width}
+        height={biggestImage.height}
+        {...rest}
+        alt={alt}
+      />
     </picture>
   );
 };
@@ -86,13 +96,14 @@ ReactImage.propTypes = {
   children: PropTypes.func,
   src: PropTypes.string,
   url: PropTypes.string,
+  sizes: PropTypes.string,
   variants: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string,
       width: PropTypes.number,
+      height: PropTypes.number,
     })
   ),
-  sizes: PropTypes.string,
 };
 
 export default ReactImage;
