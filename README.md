@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/snowballdigital/react-image/HEAD/media/logo.png "An illustration of an atom")
+![alt text](https://raw.githubusercontent.com/CrystallizeAPI/react-image/HEAD/media/logo.png "An illustration of an atom")
 
 # React Srcset Images for Crystallize
 
@@ -6,21 +6,20 @@ A React package to output an img tag with different source variations from Cryst
 
 [React Image Srcset resource home](https://crystallize.com/developers/react-components/react-image-srcset).
 
-## How to use
+## Install
 
 ```
 yarn add @crystallize/react-image
 ```
 
-## How to use
+## Use
 
 ```
 import Image from '@crystallize/react-image';
 
 const imageFromCrystallize = {
     url: '...',
-    variants: [...],
-    altText: ''
+    variants: [...]
 }
 
 <Image

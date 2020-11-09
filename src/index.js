@@ -1,19 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-let DEV = false;
-try {
-  DEV = process.env.NODE_ENV !== "production";
-} catch (e) {
-  DEV = false;
-}
-
-function warn(msg) {
-  if (DEV) {
-    console.warn(`@crystallize/react-image: ${msg}`);
-  }
-}
-
 const getVariantSrc = (variant) => `${variant.url} ${variant.width}w`;
 
 const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
@@ -41,6 +28,19 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   const alt = typeof altPassed === "string" ? altPassed : altText;
 
   const hasVariants = vars.length > 0;
+
+  // Get the biggest image from the variants
+  let biggestImage = {};
+  if (hasVariants) {
+    biggestImage = vars
+      .filter((v) => !!v)
+      .reduce((acc, v) => {
+        if (!acc.width || v.width > acc.width) {
+          return v;
+        }
+        return acc;
+      }, {});
+  }
 
   // Determine srcSet
   const std = vars.filter((v) => v.url && !v.url.endsWith(".webp"));
@@ -77,12 +77,6 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
     });
   }
 
-  if (hasVariants && !sizes) {
-    warn(
-      "You have provided variants, but not sizes. This has a negative impact on performance. Check out https://crystallize.com/blog/react-image-sizes-attribute-for-fast-ecommerce"
-    );
-  }
-
   return (
     <picture className={className}>
       {srcSetWebp.length > 0 && (
@@ -96,7 +90,14 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
         />
       )}
 
-      <img src={src} sizes={sizes} {...rest} alt={alt} />
+      <img
+        src={src}
+        sizes={sizes}
+        width={biggestImage.width}
+        height={biggestImage.height}
+        {...rest}
+        alt={alt}
+      />
     </picture>
   );
 };
@@ -105,13 +106,14 @@ ReactImage.propTypes = {
   children: PropTypes.func,
   src: PropTypes.string,
   url: PropTypes.string,
+  sizes: PropTypes.string,
   variants: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string,
       width: PropTypes.number,
+      height: PropTypes.number,
     })
   ),
-  sizes: PropTypes.string,
 };
 
 export default ReactImage;

@@ -10,65 +10,65 @@ const image = {
   variants: [
     {
       url: "https://media.crystallize.com/demo/19/7/24/2/@100/candy_kid.webp",
-      width: 100
+      width: 100,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/2/@500/candy_kid.jpg",
-      width: 500
+      width: 500,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/2/@200/candy_kid.webp",
-      width: 200
+      width: 200,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/2/@768/candy_kid.jpg",
-      width: 768
+      width: 768,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/2/@100/candy_kid.jpg",
-      width: 100
+      width: 100,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/2/@200/candy_kid.jpg",
-      width: 200
+      width: 200,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/2/@500/candy_kid.webp",
-      width: 500
+      width: 500,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/1/@100/candy_kid.jpg",
-      width: 100
+      width: 100,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/1/@200/candy_kid.webp",
-      width: 200
+      width: 200,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/1/@500/candy_kid.jpg",
-      width: 500
+      width: 500,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/1/@100/candy_kid.webp",
-      width: 100
+      width: 100,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/1/@200/candy_kid.jpg",
-      width: 200
+      width: 200,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/1/@768/candy_kid.jpg",
-      width: 768
+      width: 768,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/1/@500/candy_kid.webp",
-      width: 500
+      width: 500,
     },
     {
       url: "https://media.crystallize.com/demo/19/7/24/1/@768/candy_kid.webp",
-      width: 768
-    }
-  ]
+      width: 768,
+    },
+  ],
 };
 
 ReactDOM.render(
@@ -86,7 +86,7 @@ ReactDOM.render(
     </figure>
     <hr />
     <Module {...image}>
-      {p => {
+      {(p) => {
         return (
           <div style={{ textAlign: "center" }}>
             Hi from child as render func
