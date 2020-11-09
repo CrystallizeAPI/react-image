@@ -6,21 +6,20 @@ A React package to output an img tag with different source variations from Cryst
 
 [React Image Srcset resource home](https://crystallize.com/developers/react-components/react-image-srcset).
 
-## How to use
+## Install
 
 ```
 yarn add @crystallize/react-image
 ```
 
-## How to use
+## Use
 
 ```
 import Image from '@crystallize/react-image';
 
 const imageFromCrystallize = {
     url: '...',
-    variants: [...],
-    altText: ''
+    variants: [...]
 }
 
 <Image
