@@ -30,7 +30,9 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   const hasVariants = vars.length > 0;
 
   // Get the biggest image from the variants
-  const biggestImage = vars.sort((a, b) => b.width - a.width)[0];
+  const biggestImage = hasVariants
+    ? vars.sort((a, b) => b.width - a.width)[0]
+    : {};
 
   // Determine srcSet
   const std = vars.filter((v) => v.url && !v.url.endsWith(".webp"));

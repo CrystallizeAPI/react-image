@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/snowballdigital/react-image/HEAD/media/logo.png "An illustration of an atom")
+![alt text](https://raw.githubusercontent.com/CrystallizeAPI/react-image/HEAD/media/logo.png "An illustration of an atom")
 
 # React Srcset Images for Crystallize
 
