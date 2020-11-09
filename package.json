@@ -15,6 +15,15 @@
     "files": [
         "build"
     ],
+    "exports": {
+        ".": {
+            "browser": "./build/index.module.js",
+            "umd": "./build/index.umd.js",
+            "import": "./build/modern.mjs",
+            "require": "./build/index.js"
+        }
+    },
+    "types": "src/index.d.ts",
     "source": "src/index.js",
     "main": "build/index.js",
     "module": "build/index.module.js",
