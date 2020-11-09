@@ -32,11 +32,14 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
   // Get the biggest image from the variants
   let biggestImage = {};
   if (hasVariants) {
-    console.log(
-      { vars },
-      vars.sort((a, b) => b.width - a.width)
-    );
-    // biggestImage = vars.sort((a, b) => b.width - a.width)[0];
+    biggestImage = vars
+      .filter((v) => !!v)
+      .reduce((acc, v) => {
+        if (!acc.width || v.width > acc.width) {
+          return v;
+        }
+        return acc;
+      }, {});
   }
 
   // Determine srcSet
