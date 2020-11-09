@@ -1,19 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-let DEV = false;
-try {
-  DEV = process.env.NODE_ENV !== "production";
-} catch (e) {
-  DEV = false;
-}
-
-function warn(msg) {
-  if (DEV) {
-    console.warn(`@crystallize/react-image: ${msg}`);
-  }
-}
-
 const getVariantSrc = (variant) => `${variant.url} ${variant.width}w`;
 
 const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
@@ -75,12 +62,6 @@ const ReactImage = ({ children: childRenderFunc, ...restOfAllProps }) => {
       alt,
       originalFileExtension,
     });
-  }
-
-  if (hasVariants && !sizes) {
-    warn(
-      "You have provided variants, but not sizes. This has a negative impact on performance. Check out https://crystallize.com/blog/react-image-sizes-attribute-for-fast-ecommerce"
-    );
   }
 
   return (
