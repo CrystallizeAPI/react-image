@@ -1,6 +1,6 @@
 {
     "name": "@crystallize/react-image",
-    "description": "A React package to output an image with different source variations from Crystallize",
+    "description": "Output a modern and responsive image based on the source variations from Crystallize",
     "version": "3.1.1",
     "license": "MIT",
     "repository": {
@@ -19,7 +19,6 @@
         ".": {
             "browser": "./build/index.module.js",
             "umd": "./build/index.umd.js",
-            "import": "./build/modern.mjs",
             "require": "./build/index.js"
         }
     },
