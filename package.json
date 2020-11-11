@@ -10,7 +10,7 @@
     "src"
   ],
   "exports": {
-    ".": "./dist/index.esm.js"
+    ".": "./dist/index.js"
   },
   "engines": {
     "node": ">=10"
