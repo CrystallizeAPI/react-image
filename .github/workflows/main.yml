@@ -31,9 +31,11 @@ jobs:
       - name: Build
         run: yarn build
 
+  release:
+    steps:
       - name: Release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          CI: true
+          run: npx semantic-release
+          env:
+            GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+            CI: true

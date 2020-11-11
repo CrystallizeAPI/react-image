@@ -8,12 +8,12 @@ export interface CrystallizeImageVariant {
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   children?: FunctionComponent<any>;
-  src: string;
-  url: string;
-  sizes: string;
-  altText: string;
-  alt: string;
-  variants: CrystallizeImageVariant[];
+  src?: string;
+  url?: string;
+  sizes?: string;
+  altText?: string;
+  alt?: string;
+  variants?: CrystallizeImageVariant[];
 }
 
 function getVariantSrc(variant: CrystallizeImageVariant): string {

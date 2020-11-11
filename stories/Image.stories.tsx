@@ -22,7 +22,7 @@ export default meta;
 
 const Template: Story<Props> = args => <Image {...args} />;
 
-const CrystallizeImageModelExample = {
+export const CrystallizeImageModelExample = {
   url:
     'https://media.crystallize.com/minicars/20/9/3/3/giorgio-trovato-0czwuzhic84-unsplash.jpg',
   altText: 'Mini model car',
