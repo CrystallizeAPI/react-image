@@ -21,16 +21,6 @@ function getVariantSrc(variant: CrystallizeImageVariant): string {
 }
 
 export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
-  // Regular image
-  // if (restOfAllProps.src) {
-  //   if (children) {
-  //     return children(restOfAllProps);
-  //   }
-
-  //   return <img {...restOfAllProps} />;
-  // }
-
-  // Continue using data from Crystallize
   const {
     src,
     url,

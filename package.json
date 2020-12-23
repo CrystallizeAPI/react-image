@@ -1,7 +1,15 @@
 {
   "name": "@crystallize/react-image",
-  "description": "Output a modern and responsive image based on the source variations from Crystallize",
+  "description": "Modern and responsive images based on the source variations from Crystallize",
   "version": "3.1.1",
+  "keywords": [
+    "react",
+    "image",
+    "srcset",
+    "responsive",
+    "sizes",
+    "crystallize"
+  ],
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -28,6 +36,10 @@
   },
   "peerDependencies": {
     "react": ">=16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CrystallizeAPI/react-image.git"
   },
   "husky": {
     "hooks": {
@@ -59,8 +71,8 @@
     "@storybook/addon-links": "^6.0.28",
     "@storybook/addons": "^6.0.28",
     "@storybook/react": "^6.0.28",
-    "@types/react": "^16.9.56",
-    "@types/react-dom": "^16.9.9",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "babel-loader": "^8.2.1",
     "husky": "^4.3.0",
     "react": "^17.0.1",

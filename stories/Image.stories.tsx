@@ -22,7 +22,7 @@ export default meta;
 
 const Template: Story<Props> = args => <Image {...args} />;
 
-export const CrystallizeImageModelExample = {
+const CrystallizeImageModelExample = {
   url:
     'https://media.crystallize.com/minicars/20/9/3/3/giorgio-trovato-0czwuzhic84-unsplash.jpg',
   altText: 'Mini model car',
@@ -140,6 +140,12 @@ export const CrystallizeImageModelExample = {
 
 export const Default = Template.bind({});
 Default.args = CrystallizeImageModelExample;
+
+export const DefaultWithLazyLoad = Template.bind({});
+DefaultWithLazyLoad.args = {
+  ...CrystallizeImageModelExample,
+  loading: 'lazy',
+};
 
 export const ChildRenderFunction = Template.bind({});
 ChildRenderFunction.args = {
