@@ -117,7 +117,6 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
             sizes={sizes}
           />
         )}
-
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img {...commonProps} {...rest} />
       </picture>
