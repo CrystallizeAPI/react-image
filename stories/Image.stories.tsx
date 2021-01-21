@@ -26,6 +26,14 @@ const CrystallizeImageModelExample = {
   url:
     'https://media.crystallize.com/minicars/20/9/3/3/giorgio-trovato-0czwuzhic84-unsplash.jpg',
   altText: 'Mini model car',
+  "caption": {
+    "html": [
+      "<p>Photo take by <a href='https://www.instagram.com/fakeinstagramaccount/'><em>@FakeInstagramAccount2</em></a></p>"
+    ],
+    "plainText": [
+      "Photo take by @FakeInstagramAccount"
+    ]
+  },
   variants: [
     {
       url:
