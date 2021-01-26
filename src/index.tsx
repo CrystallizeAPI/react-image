@@ -9,7 +9,7 @@ export interface CrystallizeImageVariant {
 interface RichTextContent {
   html?: Array<string>;
   json?: Array<any>;
-  plainText?: string;
+  plainText?: Array<string>;
 }
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
