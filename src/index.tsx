@@ -23,6 +23,7 @@ export interface Props extends HTMLAttributes<HTMLImageElement> {
   // In case of getting both, the `html` is the one that will be displayed.
   caption?: RichTextContent;
   variants?: CrystallizeImageVariant[];
+  loading?: 'eager' | 'lazy';
 }
 
 function getVariantSrc(variant: CrystallizeImageVariant): string {
