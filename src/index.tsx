@@ -102,7 +102,6 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
   }
 
   const captionString = caption?.html?.[0] || caption?.plainText?.[0] || '';
-  const hasCaption = Boolean(captionString);
 
   return (
     <figure>
@@ -120,7 +119,7 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img {...commonProps} {...rest} />
       </picture>
-      {hasCaption && (
+      {captionString && (
         <figcaption dangerouslySetInnerHTML={{ __html: captionString }} />
       )}
     </figure>
