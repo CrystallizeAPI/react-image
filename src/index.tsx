@@ -12,7 +12,7 @@ interface RichTextContent {
   plainText?: Array<string>;
 }
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface Props extends HTMLAttributes<HTMLImageElement> {
   children?: FunctionComponent<any>;
   src?: string;
   url?: string;
@@ -42,7 +42,7 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
     ...rest
   } = restOfAllProps;
 
-  const vars = (variants || []).filter((v) => !!v);
+  const vars = (variants || []).filter(v => !!v);
   const alt = typeof altPassed === 'string' ? altPassed : altText;
 
   const hasVariants = vars.length > 0;
@@ -50,7 +50,7 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
   // Get the biggest image from the variants
   let biggestImage: CrystallizeImageVariant = vars[0];
   if (hasVariants) {
-    biggestImage = vars.reduce(function (
+    biggestImage = vars.reduce(function(
       acc: CrystallizeImageVariant,
       v: CrystallizeImageVariant
     ): CrystallizeImageVariant {
@@ -63,8 +63,8 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
   }
 
   // Determine srcSet
-  const std = vars.filter((v) => v.url && !v.url.endsWith('.webp'));
-  const webp = vars.filter((v) => v.url && v.url.endsWith('.webp'));
+  const std = vars.filter(v => v.url && !v.url.endsWith('.webp'));
+  const webp = vars.filter(v => v.url && v.url.endsWith('.webp'));
   const srcSet = std.map(getVariantSrc).join(', ');
   const srcSetWebp = webp.map(getVariantSrc).join(', ');
 
