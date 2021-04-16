@@ -24,124 +24,177 @@ const Template: Story<Props> = args => <Image {...args} />;
 
 const CrystallizeImageModelExample = {
   url:
-    'https://media.crystallize.com/minicars/20/9/3/3/giorgio-trovato-0czwuzhic84-unsplash.jpg',
-  altText: 'Mini model car',
-  "caption": {
-    "html": [
-      "<p>Photo take by <a href='https://www.instagram.com/fakeinstagramaccount/'><em>@FakeInstagramAccount2</em></a></p>"
-    ],
-    "plainText": [
-      "Photo take by @FakeInstagramAccount"
-    ]
-  },
+    'https://media.crystallize.com/crystallize_marketing/21/4/16/1/developer_comics_reality_check.jpg',
+  altText: 'Reality Check comic',
+  key: 'crystallize_marketing/21/4/16/1/developer_comics_reality_check.jpg',
   variants: [
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@100/giorgio-trovato-0czwuzhic84-unsplash.webp',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@100/developer_comics_reality_check.avif',
       width: 100,
-      height: 100,
+      key:
+        'crystallize_marketing/21/4/16/1/@100/developer_comics_reality_check.avif',
+      size: 3218,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@100/giorgio-trovato-0czwuzhic84-unsplash.jpeg',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@100/developer_comics_reality_check.webp',
       width: 100,
-      height: 100,
+      key:
+        'crystallize_marketing/21/4/16/1/@100/developer_comics_reality_check.webp',
+      size: 2620,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@200/giorgio-trovato-0czwuzhic84-unsplash.webp',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@100/developer_comics_reality_check.jpeg',
+      width: 100,
+      key:
+        'crystallize_marketing/21/4/16/1/@100/developer_comics_reality_check.jpeg',
+      size: 3665,
+    },
+    {
+      url:
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@200/developer_comics_reality_check.avif',
       width: 200,
-      height: 200,
+      key:
+        'crystallize_marketing/21/4/16/1/@200/developer_comics_reality_check.avif',
+      size: 9026,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@200/giorgio-trovato-0czwuzhic84-unsplash.jpeg',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@200/developer_comics_reality_check.webp',
       width: 200,
-      height: 200,
+      key:
+        'crystallize_marketing/21/4/16/1/@200/developer_comics_reality_check.webp',
+      size: 7784,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@500/giorgio-trovato-0czwuzhic84-unsplash.webp',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@200/developer_comics_reality_check.jpeg',
+      width: 200,
+      key:
+        'crystallize_marketing/21/4/16/1/@200/developer_comics_reality_check.jpeg',
+      size: 11340,
+    },
+    {
+      url:
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@500/developer_comics_reality_check.avif',
       width: 500,
-      height: 500,
+      key:
+        'crystallize_marketing/21/4/16/1/@500/developer_comics_reality_check.avif',
+      size: 29231,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@500/giorgio-trovato-0czwuzhic84-unsplash.jpeg',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@500/developer_comics_reality_check.webp',
       width: 500,
-      height: 500,
+      key:
+        'crystallize_marketing/21/4/16/1/@500/developer_comics_reality_check.webp',
+      size: 26754,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@768/giorgio-trovato-0czwuzhic84-unsplash.webp',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@500/developer_comics_reality_check.jpeg',
+      width: 500,
+      key:
+        'crystallize_marketing/21/4/16/1/@500/developer_comics_reality_check.jpeg',
+      size: 44603,
+    },
+    {
+      url:
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@768/developer_comics_reality_check.avif',
       width: 768,
-      height: 768,
+      key:
+        'crystallize_marketing/21/4/16/1/@768/developer_comics_reality_check.avif',
+      size: 48101,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@768/giorgio-trovato-0czwuzhic84-unsplash.jpeg',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@768/developer_comics_reality_check.webp',
       width: 768,
-      height: 768,
+      key:
+        'crystallize_marketing/21/4/16/1/@768/developer_comics_reality_check.webp',
+      size: 45512,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@1024/giorgio-trovato-0czwuzhic84-unsplash.webp',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@768/developer_comics_reality_check.jpeg',
+      width: 768,
+      key:
+        'crystallize_marketing/21/4/16/1/@768/developer_comics_reality_check.jpeg',
+      size: 81658,
+    },
+    {
+      url:
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@1024/developer_comics_reality_check.avif',
       width: 1024,
-      height: 1024,
+      key:
+        'crystallize_marketing/21/4/16/1/@1024/developer_comics_reality_check.avif',
+      size: 66665,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@1024/giorgio-trovato-0czwuzhic84-unsplash.jpeg',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@1024/developer_comics_reality_check.webp',
       width: 1024,
-      height: 1024,
+      key:
+        'crystallize_marketing/21/4/16/1/@1024/developer_comics_reality_check.webp',
+      size: 64992,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@1366/giorgio-trovato-0czwuzhic84-unsplash.webp',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@1024/developer_comics_reality_check.jpeg',
+      width: 1024,
+      key:
+        'crystallize_marketing/21/4/16/1/@1024/developer_comics_reality_check.jpeg',
+      size: 120695,
+    },
+    {
+      url:
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@1366/developer_comics_reality_check.avif',
       width: 1366,
-      height: 1366,
+      key:
+        'crystallize_marketing/21/4/16/1/@1366/developer_comics_reality_check.avif',
+      size: 94818,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@1366/giorgio-trovato-0czwuzhic84-unsplash.jpeg',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@1366/developer_comics_reality_check.webp',
       width: 1366,
-      height: 1366,
+      key:
+        'crystallize_marketing/21/4/16/1/@1366/developer_comics_reality_check.webp',
+      size: 88094,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@1600/giorgio-trovato-0czwuzhic84-unsplash.webp',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@1366/developer_comics_reality_check.jpeg',
+      width: 1366,
+      key:
+        'crystallize_marketing/21/4/16/1/@1366/developer_comics_reality_check.jpeg',
+      size: 187457,
+    },
+    {
+      url:
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@1600/developer_comics_reality_check.avif',
       width: 1600,
-      height: 1600,
+      key:
+        'crystallize_marketing/21/4/16/1/@1600/developer_comics_reality_check.avif',
+      size: 116699,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@1600/giorgio-trovato-0czwuzhic84-unsplash.jpeg',
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@1600/developer_comics_reality_check.webp',
       width: 1600,
-      height: 1600,
+      key:
+        'crystallize_marketing/21/4/16/1/@1600/developer_comics_reality_check.webp',
+      size: 104302,
     },
     {
       url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@1920/giorgio-trovato-0czwuzhic84-unsplash.webp',
-      width: 1920,
-      height: 1920,
-    },
-    {
-      url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@1920/giorgio-trovato-0czwuzhic84-unsplash.jpeg',
-      width: 1920,
-      height: 1920,
-    },
-    {
-      url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@3200/giorgio-trovato-0czwuzhic84-unsplash.webp',
-      width: 3200,
-      height: 3200,
-    },
-    {
-      url:
-        'https://media.crystallize.com/minicars/20/9/3/3/@3200/giorgio-trovato-0czwuzhic84-unsplash.jpeg',
-      width: 3200,
-      height: 3200,
+        'https://media.crystallize.com/crystallize_marketing/21/4/16/1/@1600/developer_comics_reality_check.jpeg',
+      width: 1600,
+      key:
+        'crystallize_marketing/21/4/16/1/@1600/developer_comics_reality_check.jpeg',
+      size: 232901,
     },
   ],
 };

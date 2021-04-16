@@ -4,6 +4,7 @@ export interface CrystallizeImageVariant {
   url: string;
   width: number;
   height: number;
+  size?: number;
 }
 
 interface RichTextContent {
@@ -64,10 +65,14 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
   }
 
   // Determine srcSet
-  const std = vars.filter(v => v.url && !v.url.endsWith('.webp'));
+  const std = vars.filter(
+    v => v.url && !v.url.endsWith('.webp') && !v.url.endsWith('.avif')
+  );
   const webp = vars.filter(v => v.url && v.url.endsWith('.webp'));
+  const avif = vars.filter(v => v.url && v.url.endsWith('.avif'));
   const srcSet = std.map(getVariantSrc).join(', ');
   const srcSetWebp = webp.map(getVariantSrc).join(', ');
+  const srcSetAvif = avif.map(getVariantSrc).join(', ');
 
   // Determine the original file extension
   let originalFileExtension = 'jpeg';
@@ -103,12 +108,27 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
   }
 
   const captionString = caption?.html?.[0] || caption?.plainText?.[0] || '';
+  let useWebP = srcSetWebp.length > 0;
+  let useAvif = srcSetAvif.length > 0;
+
+  // If image size is given, let's pick the smallest version
+  if (useWebP && useAvif) {
+    const [firstWebp] = webp;
+    const [firstAvif] = avif;
+    if (firstWebp.size && firstAvif.size) {
+      useWebP = firstWebp.size < firstAvif.size;
+      useAvif = !useWebP;
+    }
+  }
 
   return (
     <figure>
       <picture className={className}>
-        {srcSetWebp.length > 0 && (
+        {useWebP && (
           <source srcSet={srcSetWebp} type="image/webp" sizes={sizes} />
+        )}
+        {useAvif && (
+          <source srcSet={srcSetAvif} type="image/avif" sizes={sizes} />
         )}
         {srcSet.length > 0 && (
           <source
