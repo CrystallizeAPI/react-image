@@ -122,8 +122,8 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
   }
 
   return (
-    <figure>
-      <picture className={className}>
+    <figure className={className}>
+      <picture>
         {useWebP && (
           <source srcSet={srcSetWebp} type="image/webp" sizes={sizes} />
         )}
