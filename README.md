@@ -6,6 +6,10 @@ A React package to output an img tag with different source variations from Cryst
 
 [React Image Srcset resource home](https://crystallize.com/developers/react-components/react-image-srcset).
 
+## Demo
+
+[Demo](https://react-image.milliseconds.io/)
+
 ## Install
 
 ```
