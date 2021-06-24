@@ -124,11 +124,11 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
   return (
     <figure className={className}>
       <picture>
-        {useWebP && (
-          <source srcSet={srcSetWebp} type="image/webp" sizes={sizes} />
-        )}
         {useAvif && (
           <source srcSet={srcSetAvif} type="image/avif" sizes={sizes} />
+        )}
+        {useWebP && (
+          <source srcSet={srcSetWebp} type="image/webp" sizes={sizes} />
         )}
         {srcSet.length > 0 && (
           <source
