@@ -4,7 +4,8 @@
 
 A React package to output an img tag with different source variations from Crystallize using srcset. Use this to easily build responsive images powered by the [Crystallize headless commerce service](https://crystallize.com/).
 
-[React Image Srcset resource home](https://crystallize.com/developers/react-components/react-image-srcset).
+And don't forget:
+[react image sizes attribute for fast ecommerce](https://crystallize.com/blog/react-image-sizes-attribute-for-fast-ecommerce).
 
 ## Demo
 
