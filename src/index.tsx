@@ -3,7 +3,7 @@ import React, { FC, HTMLAttributes, FunctionComponent } from 'react';
 export interface CrystallizeImageVariant {
   url: string;
   width: number;
-  height: number;
+  height?: number;
   size?: number;
 }
 
