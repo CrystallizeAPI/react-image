@@ -50,6 +50,14 @@ const imageFromCrystallize = {
       // Roll your own render
       return (
           <picture>
+            {srcSetAvif.length > 0 && (
+                <source
+                    srcSet={srcSetAvif.join(", ")}
+                    src={webp[0].url}
+                    type="image/avif"
+                    sizes={sizes}
+                />
+            )}
             {srcSetWebp.length > 0 && (
                 <source
                     srcSet={srcSetWebp.join(", ")}

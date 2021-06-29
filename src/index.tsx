@@ -44,7 +44,7 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
     ...rest
   } = restOfAllProps;
 
-  const vars = (variants || []).filter(v => !!v);
+  const vars = (variants || []).filter((v) => !!v);
   const alt = typeof altPassed === 'string' ? altPassed : altText;
 
   const hasVariants = vars.length > 0;
@@ -52,7 +52,7 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
   // Get the biggest image from the variants
   let biggestImage: CrystallizeImageVariant = vars[0];
   if (hasVariants) {
-    biggestImage = vars.reduce(function(
+    biggestImage = vars.reduce(function (
       acc: CrystallizeImageVariant,
       v: CrystallizeImageVariant
     ): CrystallizeImageVariant {
@@ -66,10 +66,10 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
 
   // Determine srcSet
   const std = vars.filter(
-    v => v.url && !v.url.endsWith('.webp') && !v.url.endsWith('.avif')
+    (v) => v.url && !v.url.endsWith('.webp') && !v.url.endsWith('.avif')
   );
-  const webp = vars.filter(v => v.url && v.url.endsWith('.webp'));
-  const avif = vars.filter(v => v.url && v.url.endsWith('.avif'));
+  const webp = vars.filter((v) => v.url && v.url.endsWith('.webp'));
+  const avif = vars.filter((v) => v.url && v.url.endsWith('.avif'));
   const srcSet = std.map(getVariantSrc).join(', ');
   const srcSetWebp = webp.map(getVariantSrc).join(', ');
   const srcSetAvif = avif.map(getVariantSrc).join(', ');
@@ -95,19 +95,6 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
     height: biggestImage?.height,
   };
 
-  if (children) {
-    return children({
-      srcSet,
-      srcSetWebp,
-      className,
-      sizes,
-      ...commonProps,
-      ...rest,
-      originalFileExtension,
-    });
-  }
-
-  const captionString = caption?.html?.[0] || caption?.plainText?.[0] || '';
   let useWebP = srcSetWebp.length > 0;
   let useAvif = srcSetAvif.length > 0;
 
@@ -120,6 +107,21 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
       useAvif = !useWebP;
     }
   }
+
+  if (children) {
+    return children({
+      srcSet,
+      srcSetWebp,
+      srcSetAvif,
+      className,
+      sizes,
+      ...commonProps,
+      ...rest,
+      originalFileExtension,
+    });
+  }
+
+  const captionString = caption?.html?.[0] || caption?.plainText?.[0] || '';
 
   return (
     <figure className={className}>
