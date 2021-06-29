@@ -98,13 +98,16 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
   let useWebP = srcSetWebp.length > 0;
   let useAvif = srcSetAvif.length > 0;
 
-  // If image size is given, let's pick the smallest version
+  /**
+   * Only output Avif format if it is smaller than
+   * webP. For the future: show only one of them when
+   * the browser support for Avif is good enough
+   */
   if (useWebP && useAvif) {
     const [firstWebp] = webp;
     const [firstAvif] = avif;
     if (firstWebp.size && firstAvif.size) {
-      useWebP = firstWebp.size < firstAvif.size;
-      useAvif = !useWebP;
+      useAvif = firstWebp.size > firstAvif.size;
     }
   }
 
@@ -113,6 +116,8 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
       srcSet,
       srcSetWebp,
       srcSetAvif,
+      useAvif,
+      useWebP,
       className,
       sizes,
       ...commonProps,

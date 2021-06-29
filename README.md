@@ -46,25 +46,28 @@ const imageFromCrystallize = {
     {...imageFromCrystallize}
     sizes="(max-width: 700px) 90vw, 700px"
 >
-  {({ src, srcSet, srcSetWebp, sizes, originalFileExtension, ...rest }) => {
+  {({
+      src,
+      srcSet,
+      srcSetWebp,
+      useAvif,
+      useWebP,
+      sizes,
+      width,
+      height,
+      loading,
+      alt,
+      originalFileExtension,
+      ...rest
+    }) => {
       // Roll your own render
       return (
-          <picture>
-            {srcSetAvif.length > 0 && (
-                <source
-                    srcSet={srcSetAvif.join(", ")}
-                    src={webp[0].url}
-                    type="image/avif"
-                    sizes={sizes}
-                />
+          <picture {...rest}>
+            {useAvif && (
+                <source srcSet={srcSetAvif} type="image/avif" sizes={sizes} />
             )}
-            {srcSetWebp.length > 0 && (
-                <source
-                    srcSet={srcSetWebp.join(", ")}
-                    src={webp[0].url}
-                    type="image/webp"
-                    sizes={sizes}
-                />
+            {useWebP && (
+                <source srcSet={srcSetWebp} type="image/webp" sizes={sizes} />
             )}
             {srcSet.length > 0 && (
                 <source
@@ -75,7 +78,7 @@ const imageFromCrystallize = {
                 />
             )}
 
-            <img src={src} sizes={sizes} {...rest} />
+            <img src={src} width={width} height={height} loading={loading} alt={alt} />
         </picture>
       )
   }}
