@@ -20,6 +20,7 @@ export interface Props extends HTMLAttributes<HTMLImageElement> {
   sizes?: string;
   altText?: string;
   alt?: string;
+  media?: string;
   // The `html` content has higher priority than `plainText` because it has richer content.
   // In case of getting both, the `html` is the one that will be displayed.
   caption?: RichTextContent;
@@ -41,6 +42,7 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
     alt: altPassed,
     caption,
     className,
+    media,
     ...rest
   } = restOfAllProps;
 
@@ -78,7 +80,7 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
   let originalFileExtension = 'jpeg';
   if (std.length > 0) {
     const match = std[0].url.match(/\.(?<name>[^.]+)$/);
-    let originalFileExtension = match?.groups?.name;
+    originalFileExtension = match?.groups?.name || 'jpeg';
 
     // Provide correct mime type for jpg
     if (originalFileExtension === 'jpg') {
@@ -120,6 +122,7 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
       useWebP,
       className,
       sizes,
+      media,
       ...commonProps,
       ...rest,
       originalFileExtension,
@@ -132,16 +135,27 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
     <figure className={className}>
       <picture>
         {useAvif && (
-          <source srcSet={srcSetAvif} type="image/avif" sizes={sizes} />
+          <source
+            srcSet={srcSetAvif}
+            type="image/avif"
+            sizes={sizes}
+            media={media}
+          />
         )}
         {useWebP && (
-          <source srcSet={srcSetWebp} type="image/webp" sizes={sizes} />
+          <source
+            srcSet={srcSetWebp}
+            type="image/webp"
+            sizes={sizes}
+            media={media}
+          />
         )}
         {srcSet.length > 0 && (
           <source
             srcSet={srcSet}
             type={`image/${originalFileExtension}`}
             sizes={sizes}
+            media={media}
           />
         )}
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
