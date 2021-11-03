@@ -26,6 +26,8 @@ export interface Props extends HTMLAttributes<HTMLImageElement> {
   caption?: RichTextContent;
   variants?: CrystallizeImageVariant[];
   loading?: 'eager' | 'lazy';
+  _availableSizes: number[];
+  _availableFormats: string[];
 }
 
 function getVariantSrc(variant: CrystallizeImageVariant): string {
@@ -43,11 +45,32 @@ export const Image: FC<Props> = ({ children, ...restOfAllProps }) => {
     caption,
     className,
     media,
+    _availableSizes,
+    _availableFormats,
     ...rest
   } = restOfAllProps;
 
-  const vars = (variants || []).filter((v) => !!v);
+  let vars = (variants || []).filter((v) => !!v);
   const alt = typeof altPassed === 'string' ? altPassed : altText;
+
+  // Naive rendering POC
+  if (url && _availableSizes && _availableFormats) {
+    vars = [];
+    const urlWithoutFileExtension = url.replace(/\.[^/]+$/, '');
+    const match = urlWithoutFileExtension.match(/(.+)(\/)([^/]+)$/);
+    if (match) {
+      const [, base, , filename] = match;
+
+      _availableSizes.forEach((size) => {
+        _availableFormats.forEach((format) => {
+          vars.push({
+            url: `${base}/@${size}/${filename}.${format}`,
+            width: size,
+          });
+        });
+      });
+    }
+  }
 
   const hasVariants = vars.length > 0;
 
