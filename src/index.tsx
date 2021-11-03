@@ -26,8 +26,8 @@ export interface Props extends HTMLAttributes<HTMLImageElement> {
   caption?: RichTextContent;
   variants?: CrystallizeImageVariant[];
   loading?: 'eager' | 'lazy';
-  _availableSizes: number[];
-  _availableFormats: string[];
+  _availableSizes?: number[];
+  _availableFormats?: string[];
 }
 
 function getVariantSrc(variant: CrystallizeImageVariant): string {
