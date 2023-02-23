@@ -1,3 +1,12 @@
+# Deprecation Notice
+This package has been deprecated and is no longer maintained. It has been moved to a new repository and is now part of a larger project. Please update your dependencies to use the new package instead.
+
+New package repository: https://github.com/CrystallizeAPI/reactjs-components
+
+Thank you for using this package!
+
+---
+
 ![alt text](https://raw.githubusercontent.com/CrystallizeAPI/react-image/HEAD/media/logo.png 'An illustration of an atom')
 
 # React Srcset Images for Crystallize
